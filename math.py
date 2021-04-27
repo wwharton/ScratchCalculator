@@ -30,11 +30,14 @@ class Math(Gates):
         # self.io_manager.get_input(a)
         input_a_bools = self.io_manager.int_to_bools(input_a)
         input_b_bools = self.io_manager.int_to_bools(input_b)
+
+        # Insert False values to fill 4bit
         while len(input_a_bools) < 4:
             input_a_bools.insert(0, False)
         while len(input_b_bools) < 4:
             input_b_bools.insert(0, False)
 
+        # Binary reads right to left, so we read the list from end index to beginning
         input_a4 = input_a_bools[0]
         input_a3 = input_a_bools[1]
         input_a2 = input_a_bools[2]
@@ -71,6 +74,10 @@ class Math(Gates):
             sum_bit, carry_bit = self.adder(input_a4, input_b4, carry_c)
             return sum_bit, carry_bit
 
+        # These adders chain together, like doing formal addition. Starting from the right,
+        # The first inputs are added - if it is TRUE TRUE, we have a carry -
+        # So the carry from each previous operation chains to the next as the inputs are added
+
         output_a, carry_a = adder_a(carry)
         # print(output_a)
         # print(carry_a)
@@ -80,6 +87,7 @@ class Math(Gates):
 
         carry = carry_d
 
+        # Convert final outputs into a list of bools, then back to an int
         output_bool_list = [output_d, output_c, output_b, output_a]
         print(output_bool_list)
         output_int = self.io_manager.bools_to_int(output_bool_list)
