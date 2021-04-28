@@ -57,8 +57,10 @@ class IOManager:
 if __name__ == '__main__':
     input_var = 134
     io_manager = IOManager()
-    io_manager.get_input_bin(input_var())
-    print(io_manager.int_to_bools())
-    print(io_manager.bools_to_int())
+    # io_manager.get_input_bin(input_var)
+    # print(io_manager.int_to_bools())
+    # print(io_manager.bools_to_int())\
+    print(input_var)
+    print(io_manager.int_to_bools(input_var))
 
 

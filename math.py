@@ -64,12 +64,7 @@ class Math(Gates):
 
 
         def adder_a(carry):
-            print(input_a1)
-            print(input_b1)
-            print(carry)
             sum_bit, carry_bit = self.adder(input_a1, input_b1, carry)
-            print(sum_bit)
-            print(carry_bit)
             return sum_bit, carry_bit
 
         def adder_b(carry_a):
@@ -213,7 +208,7 @@ class Math(Gates):
 
 if __name__ == '__main__':
 
-    a = 40000
+    a = 40001
     b = 9
     carry = False
     my_math = Math()
